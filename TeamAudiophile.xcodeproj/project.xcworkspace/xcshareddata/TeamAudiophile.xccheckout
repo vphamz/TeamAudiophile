@@ -5,7 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>F21D0B56-F291-4A2D-B4BE-584D77FCD59B</string>
+=======
+	<string>62831FD2-476C-497B-B68E-0D171A2F11FC</string>
+>>>>>>> master
 	<key>IDESourceControlProjectName</key>
 	<string>TeamAudiophile</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
