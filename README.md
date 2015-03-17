@@ -1,2 +1,0 @@
-# TeamAudiophile
-Jakub Paul Vu 
