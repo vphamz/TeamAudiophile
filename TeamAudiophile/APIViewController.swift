@@ -12,28 +12,39 @@ class APIViewController: UIViewController {
 
     var api_key: String!
     var events: NSDictionary!
-    var eventDescription: String!
+    var eventDescriptions: [String] = []
+    var eventIDs: [Int] = []
+    var eventDates: [String] = []
     var status: String!
+    var numRecordsInArray = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         api_key = "AOSicvmAJMT3cJCp"
         
-//        api_key = "9e6b4e76d9e83ee879cf684b72d29831"
-//        var url = NSURL(string: "http://ws.audioscrobbler.com/2.0/?method=event.getinfo&event=328799&api_key=\(api_key)&format=json")!
-        
-        
         var url = NSURL(string: "http://api.songkick.com/api/3.0/metro_areas/26330/calendar.json?apikey=\(api_key)")!
         var request = NSURLRequest(URL: url)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response:NSURLResponse!, data:NSData!, error:NSError!) -> Void in
         var dictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
         self.events = dictionary["resultsPage"]?["results"]? as NSDictionary
-//        self.status = dictionary["resultsPage"]?["status"]? as String
-//        println(self.events)
-        self.eventDescription = self.events["event"]?[0]?["displayName"] as String
-        println(self.eventDescription)
-
+            
+        for var i = 0; i < self.numRecordsInArray; i++
+        {
+            var eventDesc = self.events["event"]?[i]?["displayName"] as String
+            self.eventDescriptions.append(eventDesc)
+            
+            var eventID = self.events["event"]?[i]?["id"] as Int
+            self.eventIDs.append(eventID)
+            
+//            var eventDate = self.events["event"]?[i]?["start"]?["date"] as String
+//            self.eventDates.append(eventDate)
+            
+        }
+            
+        println(self.eventIDs)
+        println(self.eventDescriptions)
+            
         }
     }
 
