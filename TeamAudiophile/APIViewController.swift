@@ -15,8 +15,11 @@ class APIViewController: UIViewController {
     var eventDescriptions: [String] = []
     var eventIDs: [Int] = []
     var eventDates: [String] = []
+    var eventVenues: [String] = []
+    var eventCities: [String] = []
+    var eventArtists: [String] = []
     var status: String!
-    var numRecordsInArray = 40
+    var numRecordsInArray = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +40,30 @@ class APIViewController: UIViewController {
             var eventID = self.events["event"]?[i]?["id"] as Int
             self.eventIDs.append(eventID)
             
-//            var eventDate = self.events["event"]?[i]?["start"]?["date"] as String
-//            self.eventDates.append(eventDate)
+            var eventVenue = self.events["event"]?[i]?["venue"]? as NSDictionary
+            var eventVenueName = eventVenue["displayName"] as String
+            self.eventVenues.append(eventVenueName)
+            
+            var eventStart = self.events["event"]?[i]?["start"]? as NSDictionary
+            var eventDate = eventStart["date"]? as String
+            self.eventDates.append(eventDate)
+            
+            var eventLocation = self.events["event"]?[i]?["location"]? as NSDictionary
+            var eventCity = eventLocation["city"]? as String
+            self.eventCities.append(eventCity)
+            
+            var eventPerformance = self.events["event"]?[i]?["performance"]? as NSArray
+            var eventArtistName = eventPerformance[0]["displayName"] as String
+            self.eventArtists.append(eventArtistName)
             
         }
             
         println(self.eventIDs)
         println(self.eventDescriptions)
+        println(self.eventDates)
+        println(self.eventVenues)
+        println(self.eventCities)
+        println(self.eventArtists)
             
         }
     }
