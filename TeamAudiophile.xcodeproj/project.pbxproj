@@ -13,6 +13,7 @@
 		28D959AA1AB7B84A00E9C441 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28D959A91AB7B84A00E9C441 /* Images.xcassets */; };
 		28D959AD1AB7B84A00E9C441 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28D959AB1AB7B84A00E9C441 /* LaunchScreen.xib */; };
 		28D959B91AB7B84A00E9C441 /* TeamAudiophileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D959B81AB7B84A00E9C441 /* TeamAudiophileTests.swift */; };
+		8832A8041ABA6BB500B69AA0 /* APIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832A8031ABA6BB500B69AA0 /* APIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		28D959B21AB7B84A00E9C441 /* TeamAudiophileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamAudiophileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D959B71AB7B84A00E9C441 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28D959B81AB7B84A00E9C441 /* TeamAudiophileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAudiophileTests.swift; sourceTree = "<group>"; };
+		8832A8031ABA6BB500B69AA0 /* APIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				28D959A21AB7B84A00E9C441 /* AppDelegate.swift */,
 				28D959A41AB7B84A00E9C441 /* ViewController.swift */,
 				28D959A61AB7B84A00E9C441 /* Main.storyboard */,
+				8832A8031ABA6BB500B69AA0 /* APIViewController.swift */,
 				28D959A91AB7B84A00E9C441 /* Images.xcassets */,
 				28D959AB1AB7B84A00E9C441 /* LaunchScreen.xib */,
 				28D959A01AB7B84A00E9C441 /* Supporting Files */,
@@ -214,6 +217,7 @@
 			files = (
 				28D959A51AB7B84A00E9C441 /* ViewController.swift in Sources */,
 				28D959A31AB7B84A00E9C441 /* AppDelegate.swift in Sources */,
+				8832A8041ABA6BB500B69AA0 /* APIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +411,7 @@
 				28D959BE1AB7B84A00E9C441 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28D959BF1AB7B84A00E9C441 /* Build configuration list for PBXNativeTarget "TeamAudiophileTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +420,7 @@
 				28D959C11AB7B84A00E9C441 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
