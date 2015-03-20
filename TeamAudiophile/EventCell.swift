@@ -47,7 +47,6 @@ class EventCell: UITableViewCell {
         var movingView = recognizer.view as UIView!
         
         
-        println(self.translatesAutoresizingMaskIntoConstraints())
         
         if (recognizer.state == .Began) {
             

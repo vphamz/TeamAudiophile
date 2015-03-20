@@ -58,12 +58,12 @@ class APIViewController: UIViewController {
             
         }
             
-        println(self.eventIDs)
-        println(self.eventDescriptions)
-        println(self.eventDates)
-        println(self.eventVenues)
-        println(self.eventCities)
-        println(self.eventArtists)
+//        println(self.eventIDs)
+//        println(self.eventDescriptions)
+//        println(self.eventDates)
+//        println(self.eventVenues)
+//        println(self.eventCities)
+//        println(self.eventArtists)
             
         }
     }

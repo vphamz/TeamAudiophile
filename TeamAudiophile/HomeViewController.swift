@@ -33,6 +33,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         eventTableView.allowsSelection = false
         //eventTableView.
         
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var apiViewController = storyboard.instantiateViewControllerWithIdentifier("APIViewController") as APIViewController
+        
+        apiViewController.viewDidLoad()
+        println(apiViewController.eventCities)
+        
         
     }
 
