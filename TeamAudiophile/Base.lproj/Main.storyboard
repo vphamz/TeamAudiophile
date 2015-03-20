@@ -176,6 +176,7 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.44906610320000001" green="1" blue="0.34812093750000001" alpha="1" colorSpace="calibratedRGB"/>
