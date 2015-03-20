@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2862FEB21ABA71AD007A6860 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862FEB11ABA71AD007A6860 /* HamburgerViewController.swift */; };
+		2862FEB41ABA71CC007A6860 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862FEB31ABA71CC007A6860 /* MenuViewController.swift */; };
+		2862FEB61ABA71E7007A6860 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862FEB51ABA71E7007A6860 /* HomeViewController.swift */; };
+		2862FEB81ABA7AFC007A6860 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862FEB71ABA7AFC007A6860 /* EventCell.swift */; };
 		28D959A31AB7B84A00E9C441 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D959A21AB7B84A00E9C441 /* AppDelegate.swift */; };
 		28D959A51AB7B84A00E9C441 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D959A41AB7B84A00E9C441 /* ViewController.swift */; };
 		28D959A81AB7B84A00E9C441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D959A61AB7B84A00E9C441 /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2862FEB11ABA71AD007A6860 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
+		2862FEB31ABA71CC007A6860 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		2862FEB51ABA71E7007A6860 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2862FEB71ABA7AFC007A6860 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		28D9599D1AB7B84A00E9C441 /* TeamAudiophile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamAudiophile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D959A11AB7B84A00E9C441 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28D959A21AB7B84A00E9C441 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +91,10 @@
 				28D959A91AB7B84A00E9C441 /* Images.xcassets */,
 				28D959AB1AB7B84A00E9C441 /* LaunchScreen.xib */,
 				28D959A01AB7B84A00E9C441 /* Supporting Files */,
+				2862FEB11ABA71AD007A6860 /* HamburgerViewController.swift */,
+				2862FEB31ABA71CC007A6860 /* MenuViewController.swift */,
+				2862FEB51ABA71E7007A6860 /* HomeViewController.swift */,
+				2862FEB71ABA7AFC007A6860 /* EventCell.swift */,
 			);
 			path = TeamAudiophile;
 			sourceTree = "<group>";
@@ -212,8 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2862FEB61ABA71E7007A6860 /* HomeViewController.swift in Sources */,
+				2862FEB21ABA71AD007A6860 /* HamburgerViewController.swift in Sources */,
 				28D959A51AB7B84A00E9C441 /* ViewController.swift in Sources */,
 				28D959A31AB7B84A00E9C441 /* AppDelegate.swift in Sources */,
+				2862FEB81ABA7AFC007A6860 /* EventCell.swift in Sources */,
+				2862FEB41ABA71CC007A6860 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +423,7 @@
 				28D959BE1AB7B84A00E9C441 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28D959BF1AB7B84A00E9C441 /* Build configuration list for PBXNativeTarget "TeamAudiophileTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +432,7 @@
 				28D959C11AB7B84A00E9C441 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
