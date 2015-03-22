@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol TableViewCellDelegate {
+    // indicates that the given item has been deleted
+    func eventItemBookmarked(EventItem: EventItem)
+    func eventItemDeleted(EventItem: EventItem)
+}
+
 class EventCell: UITableViewCell {
 
     @IBOutlet weak var eventName: UILabel!
@@ -22,6 +28,15 @@ class EventCell: UITableViewCell {
     
     var startingEventCenter: CGPoint!
     var startingViewCenter: CGPoint!
+    
+    var deleteOnDragRelease = false
+    var bookmark = false
+    var delete = false
+    
+    // The object that acts as delegate for this cell.
+    var delegate: TableViewCellDelegate!
+    // The item that this cell renders.
+    var eventItem: EventItem!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -59,37 +74,61 @@ class EventCell: UITableViewCell {
                 movingView.center = CGPoint(x: startingEventCenter.x + translation.x, y: movingView.center.y)
                 
                 
+                
+                
             } else {
                 UIView.animateWithDuration(0.15, animations: { () -> Void in
                     movingView.center = self.startingEventCenter
                 })
                 
             }
+            
+            deleteOnDragRelease = fabs(translation.x) > 160
            
         } else if (recognizer.state == UIGestureRecognizerState.Ended) {
             
             if (translation.x > 160) {
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                UIView.animateWithDuration(0.15, animations: { () -> Void in
                     movingView.center.x = self.startingEventCenter.x + 320
-                    
                 })
+                bookmark = true
                 
                 
             } else if (translation.x < -160) {
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                UIView.animateWithDuration(0.15, animations: { () -> Void in
                     movingView.center.x = self.startingEventCenter.x - 320
                 })
+                delete = true
                 
             } else {
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                UIView.animateWithDuration(0.15, animations: { () -> Void in
                     movingView.center = self.startingEventCenter
                 })
             }
             
             
             
+            if deleteOnDragRelease && bookmark {
+                if delegate != nil && eventItem != nil {
+                    // notify the delegate that this item should be deleted
+                    delegate!.eventItemBookmarked(eventItem!)
+                }
+            }
+            
+            if deleteOnDragRelease && delete {
+                if delegate != nil && eventItem != nil {
+                    // notify the delegate that this item should be deleted
+                    delegate!.eventItemDeleted(eventItem!)
+                }
+            }
+            
+            bookmark = false
+            delete = false
+            
             
         }
+        
+        
         
     }
     

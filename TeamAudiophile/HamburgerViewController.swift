@@ -15,6 +15,7 @@ class HamburgerViewController: UIViewController {
     var homeView: UIView!
     
     @IBOutlet weak var panView: UIView!
+    @IBOutlet weak var appLabel: UILabel!
    
     var menuViewController: MenuViewController!
     var homeViewController: HomeViewController!
@@ -26,6 +27,7 @@ class HamburgerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         
         
         // Create the view controllers
@@ -73,8 +75,8 @@ class HamburgerViewController: UIViewController {
         } else if sender.state == UIGestureRecognizerState.Ended {
             if velocity.x > 0 {
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
-                    self.contentView.center.x = self.originalCenter.x + self.view.frame.size.width - 50
-                    self.panView.center.x = self.originalCenter.x + self.view.frame.size.width - 50
+                    self.contentView.center.x = self.originalCenter.x + self.view.frame.size.width - 80
+                    self.panView.center.x = self.originalCenter.x + self.view.frame.size.width - 80
                  //   self.updateRotation(self.contentView.frame.origin.x)
                 })
             } else {
