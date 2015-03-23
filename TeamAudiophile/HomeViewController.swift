@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
 
@@ -20,25 +21,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var startingEventCenter: CGPoint!
     var startingViewCenter: CGPoint!
     
-    var movies = [String]()
+    var numRecordsInArray = 20
     
-    var api_key: String!
-    var events: NSDictionary!
-    var eventDescriptions: [String] = []
-    var eventIDs: [Int] = []
-    var eventDates: [String] = []
-    var eventVenues: [String] = []
-    var eventCities: [String] = []
-    var eventArtists: [String] = []
-    var status: String!
-    var numRecordsInArray = 100
     var eventImages: [UIImage] = []
-    
     var eventItems = [EventItem]()
     
     var bookmark = false
     var delete = false
 
+    var parseEventItems: [PFObject]! = []
+    var parseEvent = PFObject(className: "EventTest")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,52 +42,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         eventTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         eventTableView.rowHeight = 150
         eventTableView.backgroundColor = UIColor.blackColor()
-        
-        
-        movies = ["the last samarai", "taken", "bond 007", "house of cards", "dexter"]
-        
         eventTableView.allowsSelection = false
         eventTableView.separatorColor = UIColor.yellowColor()
-        
-        
-        /**
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var apiViewController = storyboard.instantiateViewControllerWithIdentifier("APIViewController") as APIViewController
-        
-        apiViewController.viewDidLoad()
-        println(apiViewController.eventCities)
-        **/
-        
-        
-        
-        
-        eventTableView.reloadData()
-        
-        
-        
-        
-        
-        
-        for var n = 0; n < self.numRecordsInArray; n++ {
-            
-            var tempImage: UIImage!
-            
-            if (n % 7 == 0) { tempImage = UIImage(named: "audiophile7")! }
-            else if (n % 6 == 0) { tempImage = UIImage(named: "audiophile6")! }
-            else if (n % 5 == 0) { tempImage = UIImage(named: "audiophile5")! }
-            else if (n % 4 == 0) { tempImage = UIImage(named: "audiophile4")! }
-            else if (n % 3 == 0) { tempImage = UIImage(named: "audiophile3")! }
-            else if (n % 2 == 0) { tempImage = UIImage(named: "audiophile2")! }
-            else if (n % 1 == 0) { tempImage = UIImage(named: "audiophile1")! }
-            
-            eventItems.append(EventItem(text: "text", desc: String(n), id: Int(1), venueName: "venueName", date: "date", location: "location", city: "city", artist: "artist", image: tempImage ))
-        }
-        
-        //println(eventItems)
         
         toasterView.layer.cornerRadius = toasterView.frame.width/2
         toasterView.hidden = true
         
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var apiViewController = storyboard.instantiateViewControllerWithIdentifier("APIViewController") as APIViewController
+        
+        apiViewController.viewDidLoad()
+        
+        getParseEvents()
 
         
     }
@@ -152,10 +110,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let indexPathForRow = NSIndexPath(forRow: index, inSection: 0)
             self.eventTableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
             self.eventTableView.endUpdates()
+            self.eventTableView.backgroundColor = UIColor.blackColor()
             
         })
         
-        //eventTableView.backgroundColor = UIColor.blackColor()
+        
         
         showHideToaster()
         
@@ -184,9 +143,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let indexPathForRow = NSIndexPath(forRow: index, inSection: 0)
             self.eventTableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
             self.eventTableView.endUpdates()
+            self.eventTableView.backgroundColor = UIColor.blackColor()
         })
         
-        //eventTableView.backgroundColor = UIColor.blackColor()
+        
         
         showHideToaster()
         
@@ -210,6 +170,46 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
 
+    func getParseEvents(){
+        var query = PFQuery(className: "EventTest")
+        query.whereKey("userUID", equalTo: PFUser.currentUser().username)
+        query.orderByDescending("updatedAt")
+        
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            
+            self.parseEventItems = objects as [PFObject]
+            
+            for var n = 0; n < self.numRecordsInArray; n++ {
+                
+                var tempImage: UIImage!
+                
+                if (n % 7 == 0) { tempImage = UIImage(named: "audiophile7")! }
+                else if (n % 6 == 0) { tempImage = UIImage(named: "audiophile6")! }
+                else if (n % 5 == 0) { tempImage = UIImage(named: "audiophile5")! }
+                else if (n % 4 == 0) { tempImage = UIImage(named: "audiophile4")! }
+                else if (n % 3 == 0) { tempImage = UIImage(named: "audiophile3")! }
+                else if (n % 2 == 0) { tempImage = UIImage(named: "audiophile2")! }
+                else if (n % 1 == 0) { tempImage = UIImage(named: "audiophile1")! }
+                
+                let parseEventArtists = self.parseEventItems[0]["eventArtists"].objectAtIndex(n) as String
+                let parseEventCities = self.parseEventItems[0]["eventCities"].objectAtIndex(n) as String
+                let parseEventDates = self.parseEventItems[0]["eventDates"].objectAtIndex(n) as String
+                let parseEventDescriptions = self.parseEventItems[0]["eventDescriptions"].objectAtIndex(n) as String
+                let parseEventIDs = self.parseEventItems[0]["eventIDs"].objectAtIndex(n) as Int
+                let parseUserUIDs = self.parseEventItems[0]["userUID"] as String
+                let parseEventVenues = self.parseEventItems[0]["eventVenues"].objectAtIndex(n) as String
+                
+                
+                
+                self.eventItems.append(EventItem(text: "text", desc: parseEventDescriptions, id: parseEventIDs, useruid: parseUserUIDs, venueName: parseEventVenues, date: parseEventDates, location: parseEventCities, city: parseEventCities, artist: parseEventArtists, image: tempImage ))
+            }
+            
+            
+            self.eventTableView.reloadData()
+            
+        }
+        
+    }
     
 
 }

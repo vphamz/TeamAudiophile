@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class MenuViewController: UIViewController {
 
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var usernameButton: UIButton!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ class MenuViewController: UIViewController {
         profileImage.image = UIImage(named: "generic-profile")
         
         
+        usernameLabel.text = PFUser.currentUser().username
         
         
     }
@@ -42,6 +46,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func didPressSignoutButton(sender: AnyObject) {
+        performSegueWithIdentifier("toSigninSegue", sender: self)
     }
 
 }

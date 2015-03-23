@@ -14,6 +14,7 @@ class EventItem: NSObject {
     var text: String
     var desc: String
     var id: Int
+    var useruid: String
     var venueName: String
     var date: String
     var location: String
@@ -28,10 +29,11 @@ class EventItem: NSObject {
     
     // Returns a ToDoItem initialized with the given text and default completed value.
     
-    init(text: String, desc: String, id: Int, venueName: String, date: String, location: String, city: String, artist: String, image: UIImage) {
+    init(text: String, desc: String, id: Int, useruid: String, venueName: String, date: String, location: String, city: String, artist: String, image: UIImage) {
         self.text = text
         self.desc = desc
         self.id = id
+        self.useruid = useruid
         self.venueName = venueName
         self.date = date
         self.location = location
