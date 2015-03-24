@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var toasterView: UIView!
     @IBOutlet weak var toasterIcon: UIImageView!
     @IBOutlet weak var toasterLabel: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     var startingEventCenter: CGPoint!
     var startingViewCenter: CGPoint!
@@ -51,9 +52,24 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         var apiViewController = storyboard.instantiateViewControllerWithIdentifier("APIViewController") as APIViewController
         
-        apiViewController.viewDidLoad()
         
-        getParseEvents()
+        
+        indicator.startAnimating()
+        
+        UIView.animateWithDuration(3.0, animations: { () -> Void in
+            //
+            
+            apiViewController.viewDidLoad()
+            self.eventTableView.backgroundColor = UIColor.blackColor()
+            
+        }, completion: { (Bool) -> Void in
+            //
+            self.indicator.hidesWhenStopped = true
+            self.indicator.stopAnimating()
+            self.getParseEvents()
+        })
+        
+        
 
         
     }
@@ -110,9 +126,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let indexPathForRow = NSIndexPath(forRow: index, inSection: 0)
             self.eventTableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
             self.eventTableView.endUpdates()
-            self.eventTableView.backgroundColor = UIColor.blackColor()
             
-        })
+            
+            }, completion: { (Bool) -> Void in
+                
+                self.eventTableView.backgroundColor = UIColor.blackColor()
+                
+            }
+        )
         
         
         
@@ -143,8 +164,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let indexPathForRow = NSIndexPath(forRow: index, inSection: 0)
             self.eventTableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
             self.eventTableView.endUpdates()
-            self.eventTableView.backgroundColor = UIColor.blackColor()
-        })
+            
+            } , completion: { (Bool) -> Void in
+                
+                self.eventTableView.backgroundColor = UIColor.blackColor()
+                
+            }
+        )
         
         
         
@@ -175,9 +201,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         query.whereKey("userUID", equalTo: PFUser.currentUser().username)
         query.orderByDescending("updatedAt")
         
+        
+        
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             
             self.parseEventItems = objects as [PFObject]
+            
+            
+            
+            
             
             for var n = 0; n < self.numRecordsInArray; n++ {
                 
@@ -207,6 +239,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             self.eventTableView.reloadData()
             
+        
         }
         
     }

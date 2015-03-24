@@ -50,8 +50,26 @@ class SigninViewController: UIViewController {
         PFUser.logInWithUsernameInBackground(usernameTextField.text, password: passwordTextField.text) { (user: PFUser!, error: NSError!) -> Void in
             
             if (user != nil) {
-                println("logged in!")
-                self.performSegueWithIdentifier("toHamburgerSegue", sender: self)
+                
+                
+                
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    //
+                    println("logged in!")
+                    
+                    self.signinView.frame = CGRect(x: self.signinView.frame.origin.x, y: self.signinView.frame.origin.y + self.signinView.frame.height/2, width: self.signinView.frame.width, height: 0)
+                    
+                    //self.signinInnerView.layer.cornerRadius = self.signinInnerView.frame.width*3/2
+                    
+                    //self.signinInnerView.frame = CGRect(x: self.signinInnerView.frame.origin.x - self.signinInnerView.frame.width*3/2, y: self.signinInnerView.frame.origin.y - self.signinInnerView.frame.height*3/2, width: self.signinInnerView.frame.width*3, height: self.signinInnerView.frame.height*3)
+                    
+                    
+                }, completion: { (Bool) -> Void in
+                    //
+                    self.performSegueWithIdentifier("toHamburgerSegue", sender: self)
+                })
+                
+                
             } else {
                 var alertView = UIAlertView(title: "Oops", message: error.description, delegate: nil, cancelButtonTitle: "OK")
                 alertView.show()

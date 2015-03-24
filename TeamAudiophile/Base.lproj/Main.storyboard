@@ -223,11 +223,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="67v-c0-1bZ" userLabel="Gray Activity Indicator">
+                                <rect key="frame" x="142" y="265" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <gestureRecognizers/>
                     </view>
                     <connections>
                         <outlet property="eventTableView" destination="Tma-vg-O04" id="eD1-Dg-25n"/>
+                        <outlet property="indicator" destination="67v-c0-1bZ" id="NKo-KH-tyP"/>
                         <outlet property="toasterIcon" destination="pxL-5m-JGQ" id="dgS-a0-sla"/>
                         <outlet property="toasterLabel" destination="3I5-Op-0xO" id="tth-Ut-Di1"/>
                         <outlet property="toasterView" destination="xk6-Pi-9Ep" id="izh-tR-rbs"/>
@@ -378,7 +383,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="aIx-h4-EFc">
+                            <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="aIx-h4-EFc">
                                 <rect key="frame" x="10" y="120" width="270" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
