@@ -11,8 +11,8 @@
 		28D959A51AB7B84A00E9C441 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D959A41AB7B84A00E9C441 /* ViewController.swift */; };
 		28D959A81AB7B84A00E9C441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D959A61AB7B84A00E9C441 /* Main.storyboard */; };
 		28D959AA1AB7B84A00E9C441 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28D959A91AB7B84A00E9C441 /* Images.xcassets */; };
-		28D959AD1AB7B84A00E9C441 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28D959AB1AB7B84A00E9C441 /* LaunchScreen.xib */; };
 		28D959B91AB7B84A00E9C441 /* TeamAudiophileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D959B81AB7B84A00E9C441 /* TeamAudiophileTests.swift */; };
+		89D4DC041ABF7F6B00EDD26B /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D4DC031ABF7F6B00EDD26B /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,10 +32,10 @@
 		28D959A41AB7B84A00E9C441 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		28D959A71AB7B84A00E9C441 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28D959A91AB7B84A00E9C441 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		28D959AC1AB7B84A00E9C441 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		28D959B21AB7B84A00E9C441 /* TeamAudiophileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamAudiophileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D959B71AB7B84A00E9C441 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28D959B81AB7B84A00E9C441 /* TeamAudiophileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAudiophileTests.swift; sourceTree = "<group>"; };
+		89D4DC031ABF7F6B00EDD26B /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +80,8 @@
 				28D959A21AB7B84A00E9C441 /* AppDelegate.swift */,
 				28D959A41AB7B84A00E9C441 /* ViewController.swift */,
 				28D959A61AB7B84A00E9C441 /* Main.storyboard */,
+				89D4DC031ABF7F6B00EDD26B /* TestViewController.swift */,
 				28D959A91AB7B84A00E9C441 /* Images.xcassets */,
-				28D959AB1AB7B84A00E9C441 /* LaunchScreen.xib */,
 				28D959A01AB7B84A00E9C441 /* Supporting Files */,
 			);
 			path = TeamAudiophile;
@@ -193,7 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28D959A81AB7B84A00E9C441 /* Main.storyboard in Resources */,
-				28D959AD1AB7B84A00E9C441 /* LaunchScreen.xib in Resources */,
 				28D959AA1AB7B84A00E9C441 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28D959A51AB7B84A00E9C441 /* ViewController.swift in Sources */,
+				89D4DC041ABF7F6B00EDD26B /* TestViewController.swift in Sources */,
 				28D959A31AB7B84A00E9C441 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,14 +242,6 @@
 				28D959A71AB7B84A00E9C441 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		28D959AB1AB7B84A00E9C441 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				28D959AC1AB7B84A00E9C441 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -407,6 +399,7 @@
 				28D959BE1AB7B84A00E9C441 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28D959BF1AB7B84A00E9C441 /* Build configuration list for PBXNativeTarget "TeamAudiophileTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +408,7 @@
 				28D959C11AB7B84A00E9C441 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
