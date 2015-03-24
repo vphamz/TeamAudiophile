@@ -19,6 +19,7 @@ class SigninViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,8 @@ class SigninViewController: UIViewController {
         signinView.layer.cornerRadius = signinView.frame.height/2
         signinButtonView.layer.cornerRadius = signinButtonView.frame.width/2
         signinInnerView.layer.cornerRadius = signinInnerView.frame.width/2
+        
+        loadingIndicator.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,25 +53,29 @@ class SigninViewController: UIViewController {
         PFUser.logInWithUsernameInBackground(usernameTextField.text, password: passwordTextField.text) { (user: PFUser!, error: NSError!) -> Void in
             
             if (user != nil) {
-                
-                
+
                 
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
                     //
                     println("logged in!")
+
                     
                     self.signinView.frame = CGRect(x: self.signinView.frame.origin.x, y: self.signinView.frame.origin.y + self.signinView.frame.height/2, width: self.signinView.frame.width, height: 0)
                     
                     //self.signinInnerView.layer.cornerRadius = self.signinInnerView.frame.width*3/2
                     
                     //self.signinInnerView.frame = CGRect(x: self.signinInnerView.frame.origin.x - self.signinInnerView.frame.width*3/2, y: self.signinInnerView.frame.origin.y - self.signinInnerView.frame.height*3/2, width: self.signinInnerView.frame.width*3, height: self.signinInnerView.frame.height*3)
-                    
+
                     
                 }, completion: { (Bool) -> Void in
-                    //
-                    self.performSegueWithIdentifier("toHamburgerSegue", sender: self)
+                    self.loadingIndicator.hidden = false
+                    self.loadingIndicator.startAnimating()
+                    self.delay(2, { () -> () in
+                        self.performSegueWithIdentifier("toHamburgerSegue", sender: self)
+                        self.loadingIndicator.stopAnimating()
+                    })
                 })
-                
+              
                 
             } else {
                 var alertView = UIAlertView(title: "Oops", message: error.description, delegate: nil, cancelButtonTitle: "OK")
@@ -99,6 +106,15 @@ class SigninViewController: UIViewController {
             }
         }
         
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
     
     
