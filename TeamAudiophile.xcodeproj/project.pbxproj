@@ -13,6 +13,7 @@
 		2862FEB81ABA7AFC007A6860 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862FEB71ABA7AFC007A6860 /* EventCell.swift */; };
 		287A0F5C1ABFC7100007FB38 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 287A0F5B1ABFC7100007FB38 /* Podfile */; };
 		289470621ABFC8E90030DBAB /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289470611ABFC8E90030DBAB /* SigninViewController.swift */; };
+		28A04B131AC120CA0071F122 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A04B121AC120CA0071F122 /* TestViewController.swift */; };
 		28D8DDFE1ABE360B00FC3994 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D8DDFD1ABE360B00FC3994 /* EventItem.swift */; };
 		28D959A31AB7B84A00E9C441 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D959A21AB7B84A00E9C441 /* AppDelegate.swift */; };
 		28D959A51AB7B84A00E9C441 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D959A41AB7B84A00E9C441 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 		2862FEB71ABA7AFC007A6860 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		287A0F5B1ABFC7100007FB38 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		289470611ABFC8E90030DBAB /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		28A04B121AC120CA0071F122 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		28D8DDFD1ABE360B00FC3994 /* EventItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		28D9599D1AB7B84A00E9C441 /* TeamAudiophile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamAudiophile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D959A11AB7B84A00E9C441 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				2862FEB11ABA71AD007A6860 /* HamburgerViewController.swift */,
 				2862FEB31ABA71CC007A6860 /* MenuViewController.swift */,
 				2862FEB51ABA71E7007A6860 /* HomeViewController.swift */,
+				28A04B121AC120CA0071F122 /* TestViewController.swift */,
 				28D8DDFD1ABE360B00FC3994 /* EventItem.swift */,
 				2862FEB71ABA7AFC007A6860 /* EventCell.swift */,
 				289470611ABFC8E90030DBAB /* SigninViewController.swift */,
@@ -312,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A04B131AC120CA0071F122 /* TestViewController.swift in Sources */,
 				2862FEB61ABA71E7007A6860 /* HomeViewController.swift in Sources */,
 				2862FEB21ABA71AD007A6860 /* HamburgerViewController.swift in Sources */,
 				28D959A51AB7B84A00E9C441 /* ViewController.swift in Sources */,
