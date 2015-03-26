@@ -78,7 +78,7 @@ class APIViewController: UIViewController {
                 self.parseEvent["eventVenues"] = self.eventVenues
                 self.parseEvent["eventCities"] = self.eventCities
                 self.parseEvent["eventArtists"] = self.eventArtists
-                self.parseEvent.saveInBackgroundWithBlock { (success: Bool!, errror: NSError!) -> Void in
+                self.parseEvent.saveInBackgroundWithBlock { (success: Bool!, error: NSError!) -> Void in
                     self.getParseEvents()
                 }
                 

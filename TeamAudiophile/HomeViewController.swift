@@ -198,7 +198,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func getParseEvents(){
         var query = PFQuery(className: "EventTest")
-        query.whereKey("userUID", equalTo: PFUser.currentUser().username)
+        //query.whereKey("userUID", equalTo: PFUser.currentUser().username)
         query.orderByDescending("updatedAt")
         
         
