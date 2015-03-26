@@ -22,7 +22,6 @@ class TestViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var bookmarkView: UIView!
     @IBOutlet weak var bookmarkIcon: UIImageView!
-    @IBOutlet weak var bookmarkImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,15 +61,11 @@ class TestViewController: UIViewController, UIScrollViewDelegate {
         if (sender.state == UIGestureRecognizerState.Began) {
             
             bookmarkViewOriginalCenter = bookmarkView.center
-            bookmarkImage.alpha = 1
+            
     
         } else if (sender.state == UIGestureRecognizerState.Changed) {
             
             bookmarkView.center.x = bookmarkViewOriginalCenter.x + translation.x
-            
-            if(translation.x < 60) {
-                bookmarkImage.transform = CGAffineTransformMakeTranslation(translation.x - 60, 0)
-            }
             
         } else if (sender.state == UIGestureRecognizerState.Ended) {
             
@@ -78,7 +73,7 @@ class TestViewController: UIViewController, UIScrollViewDelegate {
                 
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
                     self.bookmarkView.center = self.bookmarkViewOriginalCenter
-                    self.bookmarkImage.alpha = 0
+                    
                 })
             }
             
@@ -95,7 +90,7 @@ class TestViewController: UIViewController, UIScrollViewDelegate {
                             self.bookmarkView.alpha = 0
                             self.nextButton.alpha = 1
                             self.bookmarkIcon.transform = CGAffineTransformMakeScale(1, 1)
-                            self.bookmarkImage.alpha = 0
+                            
                             
                             }, completion: { (Bool) -> Void in
                                 
